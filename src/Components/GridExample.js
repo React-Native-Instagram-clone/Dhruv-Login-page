@@ -81,30 +81,30 @@ const GridExample = () => {
   return (
     <div className="bg-pink-400 min-h-[100vh] flex flex-col justify-center items-center gap-5">
       <div>
-        <h1 className="font-bold text-lg mb-2 mt-10 text-center">Item Nos</h1>
-        <div className="flex gap-5">
-          {allItemNos.map((val) => (
-            <button
-              className="bg-white px-1"
-              onClick={() => setItemNos([...itemNos, val])}
-            >
-              {val}
-            </button>
-          ))}
-        </div>
-        <h1 className="font-bold text-lg mb-2 mt-10 text-center">
-          Sorting Nos
-        </h1>
-        <div className="flex gap-5">
-          {allSortingNos.map((val) => (
-            <button
-              className="bg-white px-1"
-              onClick={() => setSortingNos([...sortingNos, val])}
-            >
-              {val}
-            </button>
-          ))}
-        </div>
+        // <h1 className="font-bold text-lg mb-2 mt-10 text-center">Item Nos</h1>
+        // <div className="flex gap-5">
+        //   {allItemNos.map((val) => (
+        //     <button
+        //       className="bg-white px-1"
+        //       onClick={() => setItemNos([...itemNos, val])}
+        //     >
+        //       {val}
+        //     </button>
+        //   ))}
+        // </div>
+        // <h1 className="font-bold text-lg mb-2 mt-10 text-center">
+        //   Sorting Nos
+        // </h1>
+        // <div className="flex gap-5">
+        //   {allSortingNos.map((val) => (
+        //     <button
+        //       className="bg-white px-1"
+        //       onClick={() => setSortingNos([...sortingNos, val])}
+        //     >
+        //       {val}
+        //     </button>
+        //   ))}
+        // </div>
         <h1 className="font-bold text-lg mb-2 mt-10 text-center">Color</h1>
         <div className="flex gap-5">
           {allColor.map((val) => (
@@ -149,43 +149,43 @@ const GridExample = () => {
             </button>
           ))}
         </div>
-        <h1 className="font-bold text-lg mb-2 mt-10 text-center">cut</h1>
-        <div className="flex gap-5">
-          {allCut.map((val) => (
-            <button
-              className="bg-white px-1"
-              onClick={() => setCut([...cut, val])}
-            >
-              {val}
-            </button>
-          ))}
-        </div>
-        <h1 className="font-bold text-lg mb-2 mt-10 text-center">
-          Fluorescence
-        </h1>
-        <div className="flex gap-5">
-          {allFluorescence.map((val) => (
-            <button
-              className="bg-white px-1"
-              onClick={() => setFluorescence([...fluorescence, val])}
-            >
-              {val}
-            </button>
-          ))}
-        </div>
-        <h1 className="font-bold text-lg mb-2 mt-10 text-center">
-          Measurement
-        </h1>
-        <div className="flex gap-5">
-          {allMeasurement.map((val) => (
-            <button
-              className="bg-white px-1"
-              onClick={() => setMeasurement([...measurement, val])}
-            >
-              {val}
-            </button>
-          ))}
-        </div>
+        // <h1 className="font-bold text-lg mb-2 mt-10 text-center">cut</h1>
+        // <div className="flex gap-5">
+        //   {allCut.map((val) => (
+        //     <button
+        //       className="bg-white px-1"
+        //       onClick={() => setCut([...cut, val])}
+        //     >
+        //       {val}
+        //     </button>
+        //   ))}
+        // </div>
+        // <h1 className="font-bold text-lg mb-2 mt-10 text-center">
+        //   Fluorescence
+        // </h1>
+        // <div className="flex gap-5">
+        //   {allFluorescence.map((val) => (
+        //     <button
+        //       className="bg-white px-1"
+        //       onClick={() => setFluorescence([...fluorescence, val])}
+        //     >
+        //       {val}
+        //     </button>
+        //   ))}
+        // </div>
+        // <h1 className="font-bold text-lg mb-2 mt-10 text-center">
+        //   Measurement
+        // </h1>
+        // <div className="flex gap-5">
+        //   {allMeasurement.map((val) => (
+        //     <button
+        //       className="bg-white px-1"
+        //       onClick={() => setMeasurement([...measurement, val])}
+        //     >
+        //       {val}
+        //     </button>
+        //   ))}
+        // </div>
         <h1 className="font-bold text-lg mb-2 mt-10 text-center">Polish</h1>
         <div className="flex gap-5">
           {allPolish.map((val) => (
@@ -197,52 +197,52 @@ const GridExample = () => {
             </button>
           ))}
         </div>
-        <h1 className="font-bold text-lg mb-2 mt-10 text-center">Symmetry</h1>
-        <div className="flex gap-5">
-          {allSymmetry.map((val) => (
-            <button
-              className="bg-white px-1"
-              onClick={() => setSymmetry([...symmetry, val])}
-            >
-              {val}
-            </button>
-          ))}
-        </div>
-        <h1 className="font-bold text-lg mb-2 mt-10 text-center">AuctionNos</h1>
-        <div className="flex gap-5">
-          {allAuctionNos.map((val) => (
-            <button
-              className="bg-white px-1"
-              onClick={() => setAuctionNos([...auctionNos, val])}
-            >
-              {val}
-            </button>
-          ))}
-        </div>
-        <h1 className="font-bold text-lg mb-2 mt-10 text-center">lab</h1>
-        <div className="flex gap-5">
-          {allLabs.map((val) => (
-            <button
-              className="bg-white px-1"
-              onClick={() => setLab([...lab, val])}
-            >
-              {val}
-            </button>
-          ))}
-        </div>
-        <h1 className="font-bold text-lg mb-2 mt-10 text-center">
-          DollarPrice
-        </h1>
-        <div className="flex gap-5">
-          {allDollarPrice.map((val) => (
-            <button
-              className="bg-white px-1"
-              onClick={() => setDollarPrice([...dollarPrice, val])}
-            >
-              {val}
-            </button>
-          ))}
-        </div>
+        // <h1 className="font-bold text-lg mb-2 mt-10 text-center">Symmetry</h1>
+        // <div className="flex gap-5">
+        //   {allSymmetry.map((val) => (
+        //     <button
+        //       className="bg-white px-1"
+        //       onClick={() => setSymmetry([...symmetry, val])}
+        //     >
+        //       {val}
+        //     </button>
+        //   ))}
+        // </div>
+        // <h1 className="font-bold text-lg mb-2 mt-10 text-center">AuctionNos</h1>
+        // <div className="flex gap-5">
+        //   {allAuctionNos.map((val) => (
+        //     <button
+        //       className="bg-white px-1"
+        //       onClick={() => setAuctionNos([...auctionNos, val])}
+        //     >
+        //       {val}
+        //     </button>
+        //   ))}
+        // </div>
+        // <h1 className="font-bold text-lg mb-2 mt-10 text-center">lab</h1>
+        // <div className="flex gap-5">
+        //   {allLabs.map((val) => (
+        //     <button
+        //       className="bg-white px-1"
+        //       onClick={() => setLab([...lab, val])}
+        //     >
+        //       {val}
+        //     </button>
+        //   ))}
+        // </div>
+        // <h1 className="font-bold text-lg mb-2 mt-10 text-center">
+        //   DollarPrice
+        // </h1>
+        // <div className="flex gap-5">
+        //   {allDollarPrice.map((val) => (
+        //     <button
+        //       className="bg-white px-1"
+        //       onClick={() => setDollarPrice([...dollarPrice, val])}
+        //     >
+        //       {val}
+        //     </button>
+        //   ))}
+        // </div>
       </div>
       <div className="ag-theme-quartz h-[50vh] w-[80vw]">
         <AgGridReact

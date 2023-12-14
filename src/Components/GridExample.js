@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useId } from "react";
 import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
@@ -19,7 +19,6 @@ import {
   allAuctionNos,
   allDollarPrice,
 } from "../constants/Data";
-
 const GridExample = () => {
   const [gridApi, setGridApi] = useState([]);
   const [itemNos, setItemNos] = useState([]);
@@ -36,6 +35,25 @@ const GridExample = () => {
   const [symmetry, setSymmetry] = useState([]);
   const [auctionNos, setAuctionNos] = useState([]);
   const [dollarPrice, setDollarPrice] = useState([]);
+
+  const id = useId();
+
+  const resetFilters = () => {
+    setItemNos([]);
+    setSortingNos([]);
+    setLab([]);
+    setColor([]);
+    setCarat([]);
+    setClarity([]);
+    setShape([]);
+    setCut([]);
+    setFluorescence([]);
+    setMeasurement([]);
+    setPolish([]);
+    setSymmetry([]);
+    setAuctionNos([]);
+    setDollarPrice([]);
+  };
 
   const colDefs = [
     { field: "itemNos" },
@@ -79,170 +97,110 @@ const GridExample = () => {
     (!dollarPrice.length || dollarPrice.includes(row.dollarPrice));
 
   return (
-    <div className="bg-pink-400 min-h-[100vh] flex flex-col justify-center items-center gap-5">
+    <div className="bg-[#1b203d] min-h-[100vh] flex flex-col justify-center items-center gap-1">
       <div>
-        // <h1 className="font-bold text-lg mb-2 mt-10 text-center">Item Nos</h1>
-        // <div className="flex gap-5">
-        //   {allItemNos.map((val) => (
-        //     <button
-        //       className="bg-white px-1"
-        //       onClick={() => setItemNos([...itemNos, val])}
-        //     >
-        //       {val}
-        //     </button>
-        //   ))}
-        // </div>
-        // <h1 className="font-bold text-lg mb-2 mt-10 text-center">
-        //   Sorting Nos
-        // </h1>
-        // <div className="flex gap-5">
-        //   {allSortingNos.map((val) => (
-        //     <button
-        //       className="bg-white px-1"
-        //       onClick={() => setSortingNos([...sortingNos, val])}
-        //     >
-        //       {val}
-        //     </button>
-        //   ))}
-        // </div>
-        <h1 className="font-bold text-lg mb-2 mt-10 text-center">Color</h1>
-        <div className="flex gap-5">
-          {allColor.map((val) => (
-            <button
-              className="bg-white px-1"
-              onClick={() => setColor([...color, val])}
-            >
-              {val}
-            </button>
+
+        <h1 className="font-bold text-lg mb-2 mt-10 text-center capitalize text-blue-500">Color</h1>
+        <div className="p-4 grid grid-cols-12 gap-1">
+          {allColor.map((val, index) => (
+            <div key={index} className="contents">
+              <input type="checkbox" id={`checkbox-color-${index}`} className="hidden peer" />
+              <label
+                className="bg-white px-1 hover:bg-green-600 peer-checked:bg-green-500  transition-all duration-300 ease-in-out"
+                onClick={() => setColor([...color, val])}
+                htmlFor={`checkbox-color-${index}`}
+              >
+                {val}
+              </label>
+            </div>
           ))}
         </div>
-        <h1 className="font-bold text-lg mb-2 mt-10 text-center">Carat</h1>
-        <div className="flex gap-5">
-          {allCarat.map((val) => (
-            <button
-              className="bg-white px-1"
-              onClick={() => setCarat([...carat, val])}
-            >
-              {val}
-            </button>
+        <h1 className="font-bold text-lg mb-2 mt-10 text-center capitalize text-blue-500">Carat</h1>
+        <div className="p-4 grid grid-cols-12 gap-1">
+          {allCarat.map((val, index) => (
+            <div key={index} className="contents">
+              <input type="checkbox" id={`checkbox-carat-${index}`} className="hidden peer" />
+              <label
+                className="bg-white px-1 hover:bg-green-600 peer-checked:bg-green-500  transition-all duration-300 ease-in-out"
+                onClick={() => setCarat([...carat, val])}
+                htmlFor={`checkbox-carat-${index}`}
+              >
+                {val}
+              </label>
+            </div>
           ))}
         </div>
-        <h1 className="font-bold text-lg mb-2 mt-10 text-center">clarity</h1>
-        <div className="flex gap-5">
-          {allClarity.map((val) => (
-            <button
-              className="bg-white px-1"
-              onClick={() => setClarity([...clarity, val])}
-            >
-              {val}
-            </button>
+        <h1 className="font-bold text-lg mb-2 mt-10 text-center capitalize text-blue-500">cut</h1>
+        <div className="p-4 grid grid-cols-12 gap-1">
+          {allCut.map((val, index) => (
+            <div key={index} className="contents">
+              <input type="checkbox" id={`checkbox-cut-${index}`} className="hidden peer" />
+              <label
+                className="bg-white px-1 hover:bg-green-600 peer-checked:bg-green-500  transition-all duration-300 ease-in-out"
+                onClick={() => setCut([...cut, val])}
+                htmlFor={`checkbox-cut-${index}`}
+              >
+                {val}
+              </label>
+            </div>
+
           ))}
         </div>
-        <h1 className="font-bold text-lg mb-2 mt-10 text-center">Shape</h1>
-        <div className="flex gap-5">
-          {allShape.map((val) => (
-            <button
-              className="bg-white px-1"
-              onClick={() => setShape([...shape, val])}
-            >
-              {val}
-            </button>
-          ))}
+
+        <div className="grid grid-cols-3">
+          <div>
+            <h1 className="font-bold text-lg mb-2 mt-10 text-center capitalize text-blue-500">Shape</h1>
+            <div className="p-4 grid grid-cols-11 gap-1">
+              {allShape.map((val, index) => (
+                <div key={index} className="contents">
+                  <input type="checkbox" id={`checkbox-shape-${index}`} className="hidden peer" />
+                  <label
+                    className="bg-white px-1 hover:bg-green-600 peer-checked:bg-green-500  transition-all duration-300 ease-in-out"
+                    onClick={() => setShape([...shape, val])}
+                    htmlFor={`checkbox-shape-${index}`}
+                  >
+                    {val}
+                  </label>
+                </div>
+                ))}
+            </div>
+          </div>
+          <div>
+            <h1 className="font-bold text-lg mb-2 mt-10 text-center capitalize text-blue-500">Polish</h1>
+            <div className="p-4 grid grid-cols-4 gap-1">
+              {allPolish.map((val, index) => (
+                <div key={index} className="contents">
+                  <input type="checkbox" id={`checkbox-polish-${index}`} className="hidden peer" />
+                  <label
+                    className="bg-white px-1 hover:bg-green-600 peer-checked:bg-green-500  transition-all duration-300 ease-in-out"
+                    onClick={() => setPolish([...polish, val])}
+                    htmlFor={`checkbox-polish-${index}`}
+                  >
+                    {val}
+                  </label>
+                </div>
+                
+              ))}
+            </div>
+          </div>
+          <div>
+            <h1 className="font-bold text-lg mb-2 mt-10 text-center capitalize text-blue-500">clarity</h1>
+            <div className="p-4 grid grid-cols-10 gap-1">
+              {allClarity.map((val, index) => (
+                <div key={index} className="contents">
+                  <input type="checkbox" id={`checkbox-clarity-${index}`} className="hidden peer" />
+                  <label
+                    className="bg-white px-1 hover:bg-green-600 peer-checked:bg-green-500  transition-all duration-300 ease-in-out"
+                    onClick={() => setClarity([...clarity, val])}
+                    htmlFor={`checkbox-clarity-${index}`}
+                  >
+                    {val}
+                  </label>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-        // <h1 className="font-bold text-lg mb-2 mt-10 text-center">cut</h1>
-        // <div className="flex gap-5">
-        //   {allCut.map((val) => (
-        //     <button
-        //       className="bg-white px-1"
-        //       onClick={() => setCut([...cut, val])}
-        //     >
-        //       {val}
-        //     </button>
-        //   ))}
-        // </div>
-        // <h1 className="font-bold text-lg mb-2 mt-10 text-center">
-        //   Fluorescence
-        // </h1>
-        // <div className="flex gap-5">
-        //   {allFluorescence.map((val) => (
-        //     <button
-        //       className="bg-white px-1"
-        //       onClick={() => setFluorescence([...fluorescence, val])}
-        //     >
-        //       {val}
-        //     </button>
-        //   ))}
-        // </div>
-        // <h1 className="font-bold text-lg mb-2 mt-10 text-center">
-        //   Measurement
-        // </h1>
-        // <div className="flex gap-5">
-        //   {allMeasurement.map((val) => (
-        //     <button
-        //       className="bg-white px-1"
-        //       onClick={() => setMeasurement([...measurement, val])}
-        //     >
-        //       {val}
-        //     </button>
-        //   ))}
-        // </div>
-        <h1 className="font-bold text-lg mb-2 mt-10 text-center">Polish</h1>
-        <div className="flex gap-5">
-          {allPolish.map((val) => (
-            <button
-              className="bg-white px-1"
-              onClick={() => setPolish([...polish, val])}
-            >
-              {val}
-            </button>
-          ))}
-        </div>
-        // <h1 className="font-bold text-lg mb-2 mt-10 text-center">Symmetry</h1>
-        // <div className="flex gap-5">
-        //   {allSymmetry.map((val) => (
-        //     <button
-        //       className="bg-white px-1"
-        //       onClick={() => setSymmetry([...symmetry, val])}
-        //     >
-        //       {val}
-        //     </button>
-        //   ))}
-        // </div>
-        // <h1 className="font-bold text-lg mb-2 mt-10 text-center">AuctionNos</h1>
-        // <div className="flex gap-5">
-        //   {allAuctionNos.map((val) => (
-        //     <button
-        //       className="bg-white px-1"
-        //       onClick={() => setAuctionNos([...auctionNos, val])}
-        //     >
-        //       {val}
-        //     </button>
-        //   ))}
-        // </div>
-        // <h1 className="font-bold text-lg mb-2 mt-10 text-center">lab</h1>
-        // <div className="flex gap-5">
-        //   {allLabs.map((val) => (
-        //     <button
-        //       className="bg-white px-1"
-        //       onClick={() => setLab([...lab, val])}
-        //     >
-        //       {val}
-        //     </button>
-        //   ))}
-        // </div>
-        // <h1 className="font-bold text-lg mb-2 mt-10 text-center">
-        //   DollarPrice
-        // </h1>
-        // <div className="flex gap-5">
-        //   {allDollarPrice.map((val) => (
-        //     <button
-        //       className="bg-white px-1"
-        //       onClick={() => setDollarPrice([...dollarPrice, val])}
-        //     >
-        //       {val}
-        //     </button>
-        //   ))}
-        // </div>
       </div>
       <div className="ag-theme-quartz h-[50vh] w-[80vw]">
         <AgGridReact
@@ -252,12 +210,20 @@ const GridExample = () => {
           onGridReady={({ api }) => setGridApi(api)}
         />
       </div>
-      <button
-        className="bg-white px-5 py-2 rounded-lg font-bold text-lg"
-        onClick={() => gridApi.exportDataAsCsv()}
-      >
-        Export
-      </button>
+      <div className="flex justify-center my-4">
+        <button
+          className="bg-white px-5 py-2 rounded-lg font-bold text-lg mr-4"
+          onClick={() => gridApi.exportDataAsCsv()}
+        >
+          Export
+        </button>
+        <button
+          className="bg-white px-5 py-2 rounded-lg font-bold text-lg"
+          onClick={resetFilters}
+        >
+          Reset Filters
+        </button>
+      </div>
     </div>
   );
 };
